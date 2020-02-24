@@ -1,0 +1,6585 @@
+\documentclass[SE,lsstdraft,STR,toc]{lsstdoc}
+\usepackage{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{enumitem}
+\usepackage{arydshln}
+
+\input meta.tex
+
+\providecommand{\tightlist}{
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\setcounter{tocdepth}{4}
+
+\begin{document}
+
+\def\milestoneName{M1M3 Functional Re-Verification And Integration With Sal V4.0}
+\def\milestoneId{LVV-P67}
+\def\product{SIT-COM Integration}
+
+\setDocCompact{true}
+
+\title{ LVV-P67 M1M3 Functional Re-Verification And Integration With Sal V4.0 Test Plan and Report}
+\setDocRef{\lsstDocType-\lsstDocNum}
+\date{\vcsdate}
+\setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
+\author{ Bo Xin }
+
+\input history_and_info.tex
+
+
+\setDocAbstract{
+This is the test plan and report for LVV-P67 (M1M3 Functional Re-Verification And Integration With Sal V4.0),
+an LSST milestone pertaining to the System Engineering Subsystem.
+}
+
+
+\maketitle
+
+\section{Introduction}
+\label{sect:intro}
+
+
+\subsection{Objectives}
+\label{sect:objectives}
+
+ The objective of this test plan is two-fold:
+
+\begin{itemize}
+\tightlist
+\item
+  to re-verify m1m3 software after SAL version being upgraded to 4.0.
+  Make sure all commands, events, and telemetry are recorded in the
+  summit EFD.
+\item
+  rerun most of the M1M3 performance tests which showed anomalies after
+  the M1M3 {installation on Pachon in October 2019. Make sure
+  performance requirements in \citeds{LTS-88} are met.}
+\end{itemize}
+
+
+
+\subsection{System Overview}
+\label{sect:systemoverview}
+
+ M1M3 surrogate is attached to the mirror cell. M1M3 control software has
+been upgraded to work with SAL4.0.
+
+
+\subsection{Document Overview}
+\label{sect:docoverview}
+
+This document was generated from Jira, obtaining the relevant information from the 
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P67}{LVV-P67}
+~Jira Test Plan and related Test Cycles (
+  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C126}{LVV-C126}
+).
+
+Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
+Section \ref{sect:configuration}  describes the configuration used for this test.
+Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
+%Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases, including all relevant information that fully describes the test campaign.
+
+Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
+Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
+
+The current status of test plan LVV-P67 in Jira is \textbf{ Draft }.
+
+\subsection{References}
+\label{sect:references}
+\renewcommand{\refname}{}
+\bibliography{lsst,refs,books,refs_ads,local}
+\section{Test Configuration}
+\label{sect:configuration}
+
+\subsection{Data Collection}
+
+  Observing is not required for this test campaign.
+
+\subsection{Verification Environment}
+\label{sect:hwconf}
+  M1M3 will be verified in a climate controlled environment on the summit
+3rd floor
+
+  \subsection{Entry Criteria}
+  In order to run these tests, the following criteria must be met first:\\
+
+\begin{itemize}
+\tightlist
+\item
+  All utilities and electrical connections are hooked up and allow the
+  M1M3 to be powered on and controlled
+\item
+  The EFD must be set up to be able to store events and telemetry data
+\end{itemize}
+
+  \subsection{Exit Criteria}
+  In order for this event to be considered complete, the following
+criteria must be met:
+
+\begin{itemize}
+\tightlist
+\item
+  Raw test data, events, and telemetry have been saved for M1M3.
+\item
+  All test data has been analyzed and post processed.
+\item
+  All test steps have been statused in the Jira Test Cases within this
+  Test Plan and actual results populated as required.
+\item
+  A summary of the results of the test campaign has been captured in the
+  Overall Assessment and Recommended Improvements fields of this Test
+  Plan
+\item
+  A link to the verification artifacts used to produce the summary of
+  results has been populated in the Verification Artifacts field of this
+  Test Plan
+\item
+  Any failures have been captured in the
+  \href{https://jira.lsstcorp.org/projects/FRACAS/issues/}{FRACAS}
+  project
+\end{itemize}
+
+  \subsection{PMCS Activity}
+  See Epics in Traceability Tab
+
+\newpage
+\section{Personnel}
+\label{sect:personnel}
+
+The personnel involved in the test campaign is shown in the following table.
+
+\begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
+\hline
+\multicolumn{2}{r}{Test Plan (LVV-P67) owner:} &
+\multicolumn{2}{l}{\textbf{ Bo Xin } }\\\hline
+\multicolumn{2}{r}{ LVV-C126 owner:} &
+\multicolumn{2}{l}{\textbf{
+    Bo Xin
+}
+} \\\hline
+\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T247}{LVV-T247}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1761}{LVV-T1761}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T245}{LVV-T245}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1801}{LVV-T1801}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T228}{LVV-T228}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T239}{LVV-T239}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T235}{LVV-T235}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T234}{LVV-T234}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T254}{LVV-T254}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T229}{LVV-T229}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T238}{LVV-T238}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T230}{LVV-T230}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T231}{LVV-T231}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T232}{LVV-T232}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T241}{LVV-T241}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T242}{LVV-T242}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T237}{LVV-T237}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T236}{LVV-T236}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T257}{LVV-T257}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\end{longtable}
+
+\newpage
+
+\section{Test Campaign Overview}
+\label{sect:overview}
+
+\subsection{Summary}
+\label{sect:summarytable}
+
+\begin{longtable}{p{2cm}p{2.5cm}p{9cm}p{2.5cm}}
+\toprule
+\multicolumn{3}{p{13.5cm}}{ Test Plan {\bf LVV-P67: M1M3 Functional Re-verification and Integration with SAL v4.0 }} & Draft \\\hline
+
+  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C126: M1M3 Functional Re-verification and Integration with SAL v4.0 }} & Not Executed \\\hline
+
+  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
+
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T247}{LVV-T247}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1761}{LVV-T1761}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T245}{LVV-T245}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1801}{LVV-T1801}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T228}{LVV-T228}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T239}{LVV-T239}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T235}{LVV-T235}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T234}{LVV-T234}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T254}{LVV-T254}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T229}{LVV-T229}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T238}{LVV-T238}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T230}{LVV-T230}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T231}{LVV-T231}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T232}{LVV-T232}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T241}{LVV-T241}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T242}{LVV-T242}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T237}{LVV-T237}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T236}{LVV-T236}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T257}{LVV-T257}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+\caption{Test Campaign Summary}
+\label{table:summary}
+\end{longtable}
+
+\subsection{Overall Assessment}
+\label{sect:overallassessment}
+
+Not yet available.
+
+\subsection{Recommended Improvements}
+\label{sect:recommendations}
+
+Not yet available.
+
+\newpage
+\section{Detailed Test Results}
+\label{sect:detailedtestresults}
+
+\subsection{Test Cycle LVV-C126 }
+
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C126}{M1M3 Functional Re-verification and Integration with SAL v4.0}} in Jira.
+
+M1M3 Functional Re-verification and Integration with SAL v4.0\\
+Status: Not Executed
+
+
+
+\subsubsection{Software Version/Baseline}
+Not provided.
+
+\subsubsection{Configuration}
+Not provided.
+
+\subsubsection{Test Cases in LVV-C126 Test Cycle}
+
+\paragraph{Test Case LVV-T247 - M13T-036 Environmental Conditions Operations }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T247}{\textit{ LVV-T247 } }
+test case in Jira.
+
+The overall environmental constraints are listed in \citeds{LTS-54}. This set of
+requirements from \citeds{LTS-88} is a flow-down from \citeds{LTS-54}. These tests will
+verify that the M1M3 system can operate under the conditions found at
+CAID and SOML ahead of being shipped to Pachon.
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror system is in passive mode and the mirror is resting on
+  the static supports.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\begin{enumerate}
+\tightlist
+\item
+  During all of the testing on the summit, compile the environmental
+  conditions (if they are available):
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    Humidity
+  \item
+    Temperature
+  \item
+    Wind Speed
+  \item
+    Pressure~
+  \item
+    etc.~
+  \end{enumerate}
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Log file of environmental data\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  Demonstrate that the mirror support system is fully functional on the
+  summit.
+\item
+  Mirror support system is functional over the range of temperatures
+  ~during the testing up to 20C and not lower than -5 C
+\item
+  Mirror support system is functional over range of wind speeds not
+  greater than 5 m/s.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1761 - M13T-INT-002: Mirror Cell Door Open Interlock }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1761}{\textit{ LVV-T1761 } }
+test case in Jira.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+The purpose of this test is verify the correct operation of the
+electrical hardware associated to the interlock system &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{ Preconditions}:\\
+-Factory test done.\\
+-Safety controller powered.\\
+-Safety controller M1M3 IS firmware running.\\
+-M1M3 IS User Interface available\\
+-Support Controller On\\
+-Thermal Controller On\\
+-GIS simulator present (if not bypass ``GIS Heartbeat loss'' event)\\
+-No events or actions triggered
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+open mirror cell door
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  ``Mirror door open'' indicator active at user interface
+\item
+  ``TMA Motion Block'' action indicator active at user interface
+\item
+  M1M3 IS output
+
+  \begin{itemize}
+  \tightlist
+  \item
+    main.4.O2(14) off??
+  \end{itemize}
+\item
+  Support controller detects ``Block TMA Motion'' action status
+\end{itemize}
+
+If test fails check: ??
+
+\begin{itemize}
+\tightlist
+\item
+  lights power is present, power should be 24V. If not check power
+  supply P11, relays K13, K18
+\item
+  M1M3 IS input main.1.I0(11) voltage, if event is present should be 0V,
+  if not present 24V.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Recovery Process:\\[2\baselineskip]
+
+\begin{itemize}
+\tightlist
+\item
+  close mirror cell door
+\item
+  reset ``mirror cell door open'' event
+\end{itemize}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  reset ``mirror cell door open'' event~
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T245 - M13T-031: Automatic Shutdown }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T245}{\textit{ LVV-T245 } }
+test case in Jira.
+
+TBD
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror system is in passive mode and the mirror is resting on
+  the static supports.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Watch the IMS screen and wait for the Z position to change by at least
+2mm.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet A.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet A.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+10 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+11 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+12 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+13 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+15 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+16 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet B.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+17 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+18 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+19 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet B.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+20 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+21 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+22 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+23 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+24 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+25 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Lower Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+26 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Watch the IMS screen and wait for the Z position to change by at least
+2mm.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+27 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+28 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet C.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+29 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+30 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+31 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet C.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+32 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+33 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+34 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+35 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+36 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet D.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+37 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+38 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+39 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet D.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+40 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+41 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+42 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+43 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+44 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+45 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Watch the IMS screen and wait for the Z position to change by at least
+2mm.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+46 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+47 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet A.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+48 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+49 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+50 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet A.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+51 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+52 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+53 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+54 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+55 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+56 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveEngineeringState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+57 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+58 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet B.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+59 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+60 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+61 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet B.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+62 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+63 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+64 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+65 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+66 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+67 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveEngineeringState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+68 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Lower Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+69 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Watch the IMS screen and wait for the Z position to change by at least
+2mm.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+70 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+71 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet C.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+72 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+73 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+74 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet C.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+75 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+76 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+77 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+78 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+79 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Start collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+80 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch off for power subnet D.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+81 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI verify an error occurs and an error code of 6110 / 1 is
+observed. This error code indicates that ILC communication has been lost
+to at least 1 ILC for over 60ms.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Error Code 6110 with detailed code of 1 is observed.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+82 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Stop collecting IMS data.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+83 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the controls cabinet flip the switch on for power subnet D.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+84 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+85 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress all of the test data into a zip file called
+M13T031-yyyymmddhhnn.zip and attach it to this step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+86 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Verify the fall rate for all test data doesn't exceed 15mm/s.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+All fall rates don't exceed 15mm/s
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1801 - verify M1M3 SAL 4.0 telemetry against GUI display }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1801}{\textit{ LVV-T1801 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+power up the control system, do nothing, observe all the information in
+the GUI, make sure they make sense. Take screen shots\\
+Make sure telemetry and events are showing up in EFD.\\
+Use Chronograph to check telemetry and events, make sure they agree with
+GUI.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+add 20N to actuator 103, repeat the above
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T228 - M13T-001: M1M3 \& EFD Interface }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T228}{\textit{ LVV-T228 } }
+test case in Jira.
+
+This test is intended to verify the interface between the EFD and the
+M1M3 Mirror Control system, and that all of the specified data that
+needs to be logged for the following tests is verified.~
+
+\textbf{ Preconditions}:\\
+\begin{itemize}
+\tightlist
+\item
+  M1M3 Control Software running
+\item
+  M1M3 Control Software broadcasting to SAL
+\item
+  EFD running
+\item
+  EFD is reading from SAL~
+\end{itemize}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Initialize EFD and M1M3
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+EFD writers all ready to go.\\
+M1M3 EUI shows M1M3 ready.~
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Run the python script
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Generate a separate list of force values and timestamp.~
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Confirm that the EFD has the same values as output by the python
+script.~
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\emph{Zero difference between the python script and EFD values.}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T239 - M13T-021: Mirror Support Lifting and Parking }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T239}{\textit{ LVV-T239 } }
+test case in Jira.
+
+The M1M3 mirror support system must be able to ``lift up'' and ``park
+down'' the M1M3 mirror both with automated control and in the
+engineering mode. ~Lifting up is transitioning from passive support on
+the statics supports to active support on the pneumatic figure control
+actuators. ~Parking down is the opposite transition from active mirror
+support to passive mirror support.\\[2\baselineskip]
+
+\begin{verbatim}
+# Steps:
+# - Transition from standby to parked engineering state
+# - Raise Mirror
+# - Verify raise time is < 300s
+# - Verify HP shows mirror at the reference position
+# - Verify IMS shows mirror at the reference position
+# - Lower Mirror
+# - Verify lower time is < 300s
+# - Verify lower rate is < 15mm/s
+# - Transition to parked state
+# - Raise Mirror
+# - Verify raise time is < 300s
+# - Verify HP shows mirror at the reference position
+# - Verify IMS shows mirror at the reference position
+# - Lower Mirror
+# - Verify lower time is < 300s
+# - Verify lower rate is < 15mm/s
+# - Transition back to standby
+\end{verbatim}
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror system is in passive mode and the mirror is resting on
+  the static supports.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T021.py \textbar{}\& tee
+\textasciitilde{}/M13T021-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T021-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T021-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T021-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T235 - M13T-012: Position Repeatability After Parking }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T235}{\textit{ LVV-T235 } }
+test case in Jira.
+
+Correct position of the M1M3 mirror relative to the camera and M2 mirror
+is of paramount importance for maintaining image quality. When the
+mirror support system transitions to the active mode it must be able to
+repeatedly return to the desired location.
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T012.py \textbar{}\& tee
+\textasciitilde{}/M13T012-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T012-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T012-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T012-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T234 - M13T-010: Position System Requirements }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T234}{\textit{ LVV-T234 } }
+test case in Jira.
+
+Positioning error in the M1M3 location produce misalignments in the
+optical system between the M1M3, the M2 and the Camera. These
+misalignments produce image degradation. The purpose of these
+requirements is to verify that the M1M3 position can adequately
+controlled.
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+(1)
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T010.py \textbar{}\& tee
+\textasciitilde{}/M13T010-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T010-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T010-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T010-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T254 - M13T-013: Determination of X, Y, Z Zero Coordinate }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T254}{\textit{ LVV-T254 } }
+test case in Jira.
+
+The nominal operating position is in the center of the M1M3 operating
+range. The operating range is limited by contact between mirror and the
+static supports. This purpose of this test is to determine the nominal
+operating range which is utilized throughout the testing process.
+Consequently, this is one of the first tests that will need to be run.~
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T013.py \textbar{}\& tee
+\textasciitilde{}/M13T013-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T013-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T013-yyyymmddhhnn.txt with its data files
+to \textasciitilde{}/M13T013-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Review data to determine motion range and X, Y, Z, Rx, Ry, Rz coordinate
+for the reference position.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+post results of data analysis here
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T229 - M13T-002: Bump Test - parked engineering state }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T229}{\textit{ LVV-T229 } }
+test case in Jira.
+
+This test is intended to verify that all the actuators are correctly
+installed and correctly communicating with the control system. It also
+verifies that their support utilities (compressed air and power) are
+correctly connected and
+operational.\\[2\baselineskip]\texttt{\#\ Steps:\#\ -\ Transition\ from\ standby\ to\ parked\ engineering\ state\#\ -\ Perform\ the\ following\ steps\ for\ each\ force\ actuator\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ X\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ Y\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ -Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ measured\#\ -\ Transition\ from\ parked\ engineering\ state\ to\ standby}
+
+\textbf{ Preconditions}:\\
+- All m1m3 actuators installed and operational\\
+- m1m3 control software ready\\
+- m1m3 mirror system NOT in active mode\\
+- m1m3 surrogate resting on static supports
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T002.py \textbar{}\& tee
+\textasciitilde{}/M13T002-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T002-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T002-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T002-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T238 - M13T-018: Automatic Mode (bump test in active engineering state) }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T238}{\textit{ LVV-T238 } }
+test case in Jira.
+
+Effectively demostrating the operation of
+M1M3\\[2\baselineskip]\texttt{\#\ Steps:\#\ -\ Transition\ from\ standby\ to\ active\ engineering\ state\#\ -\ Perform\ the\ following\ steps\ for\ each\ force\ actuator\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ X\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ Y\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ -Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ measured\#\ -\ Transition\ from\ active\ engineering\ state\ to\ standby}
+
+\textbf{ Preconditions}:\\
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror system is in passive mode and the mirror is resting on
+  the static supports.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T018.py \textbar{}\& tee
+\textasciitilde{}/M13T018-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T018-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T018-yyyymmddhhnn.txt along with its
+associated data files in the home directory to
+\textasciitilde{}/M13T018-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T230 - M13T-003: Individual Hardpoint Displacement Test }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T230}{\textit{ LVV-T230 } }
+test case in Jira.
+
+This test is intended to verify that all the hardpoints are correctly
+installed and correctly communicating with the control system. It also
+verifies that their support utilities (power) are correctly connected
+and operational.\\[2\baselineskip]
+
+\begin{verbatim}
+# Steps:
+# - Transition from standby to parked engineering state
+# - Perform the following steps for each hardpoint actuator
+#   - Perform the following steps for full extension and full retraction
+#     - Issue hardpoint step command
+#     - Verify hardpoint is moving
+#     - Wait for hardpoint motion to complete or a limit switch is operated
+#     - Issue stop hardpoint motion command
+#     - Verify hardpoint is stopped
+#     - Query EFD for hardpoint monitor data for test duration
+#     - Query EFD for hardpoint actuator data for test duration
+# - Transition from parked engineering to standby state
+\end{verbatim}
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 hardpoints installed and operational, however, the hardpoint
+  pneumatic breakaway mechanism are not energized (no compressed air to
+  the breakaways)
+\item
+  M1M3 limit switches have been installed properly and the
+  directionality has been tested at the lab before integration into the
+  mirror cell.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  The M1M3 mirror system is in NOT in active mode, and the surrogate
+  mirror is resting on the static supports.
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Close the air valve inside the mirror cell and wait 5 minutes for the
+air in the cell to vent.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T003.py \textbar{}\& tee
+\textasciitilde{}/M13T003-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T003-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T003-yyyymmddhhnn.txt along with its
+associated data files in the home directory to
+\textasciitilde{}/M13T003-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Open the air valve inside the mirror cell.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T231 - M13T-004: Individual Hardpoint Breakaway Test }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T231}{\textit{ LVV-T231 } }
+test case in Jira.
+
+This test is intended to verify that all the hardpoints breakaway
+mechanisms are correctly installed and the corresponding displacement
+sensor is capable of detecting a breakaway control system. It also
+verifies that their support utilities (power and compressed air) are
+correctly connected and operational.\\
+This test is effectively identical to the breakaway testing first
+conducted in the lab. The purpose of this test is to verify that the
+breakaway mechanisms are still functioning correctly after
+installation\\[2\baselineskip]
+
+\begin{verbatim}
+# Steps:
+# - Transition from standby to parked engineering state
+# - Perform the following steps for each hardpoint actuator
+#   - Perform the following steps for full extension and full retraction
+#     - Issue hardpoint step command
+#     - Verify hardpoint is moving
+#     - Wait for hardpoint motion to complete or a limit switch is operated
+#     - Issue stop hardpoint motion command
+#     - Verify hardpoint is stopped
+#     - Query EFD for hardpoint monitor data for test duration
+#     - Query EFD for hardpoint actuator data for test duration
+# - Transition from parked engineering to standby state
+\end{verbatim}
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 hardpoints installed and operational
+\item
+  All hardpoints limit switches have been tested.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  The M1M3 mirror system is in NOT in active mode, and the surrogate
+  mirror is resting on the static supports.
+\item
+  The hardpoint breakaway mechanisms are energized and supplied with
+  compressed air
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T004.py \textbar{}\& tee
+\textasciitilde{}/M13T004-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T003-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T004-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T004-yyyymmddhhnn.txt along with its
+associated data files in the home directory to
+\textasciitilde{}/M13T004-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T232 - M13T-005: Hardpoint Force Balance System }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T232}{\textit{ LVV-T232 } }
+test case in Jira.
+
+This test is intended to verify that all the hardpoints force balance
+system is correctly operating.\\
+This system reads the forces, determined on their load cells, for each
+of the 6 hardpoints.\\
+The corresponding net forces and moments in the X, Y and Z ~directions
+are determined. Distributed forces are then sent to the individual
+actuators to counteract these net forces.~
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  Entire M1M3 mirror support systems, except thermal control and
+  interlocks, are installed and operational.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 surrogate mirror is located by the hardpoints near its
+  nominal operating position.
+\item
+  Hard points are supporting negligible loads.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveEngineeringState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Detailed State is ActiveEngineeringState
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI navigate to the Hardpoints tab and click the Disable
+Hardpoint Corrections Process button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Collect a couple of seconds of following types:
+
+\begin{enumerate}
+\tightlist
+\item
+  Baseline
+\item
+  20lbs +X
+\item
+  20lbs -X
+\item
+  20lbs +Y
+\item
+  20lbs -Y
+\item
+  20lbs +Z
+\item
+  20lbs -Z
+\item
+  20lbs +MX
+\item
+  20lbs -MX
+\item
+  20lbs +MY
+\item
+  20lbs -MY
+\item
+  20lbs +MZ
+\item
+  20lbs -MZ
+\end{enumerate}
+
+For each name the data file M13T005-Measured-\textbf{TYPE}-yyyymmdd.csv
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI navigate to the Hardpoints tab and click the Enable Hardpoint
+Corrections Prcoess button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Collect a couple of seconds of following types:
+
+\begin{enumerate}
+\tightlist
+\item
+  Baseline
+\item
+  20lbs +X
+\item
+  20lbs -X
+\item
+  20lbs +Y
+\item
+  20lbs -Y
+\item
+  20lbs +Z
+\item
+  20lbs -Z
+\item
+  20lbs +MX
+\item
+  20lbs -MX
+\item
+  20lbs +MY
+\item
+  20lbs -MY
+\item
+  20lbs +MZ
+\item
+  20lbs -MZ
+\end{enumerate}
+
+For each name the data file M13T005-Corrected-\textbf{TYPE}-yyyymmdd.csv
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+10 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Lower Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+11 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Disable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+12 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+13 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T005-*.csv to
+\textasciitilde{}/M13T005-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Process the data files in M13T005-yyyymmddhhnn.zip and determine the
+accuracy of the measurements on Fx, Fy, Fz, Mx, My, Mz and post the
+results here.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+15 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Process the data files in M13T005-yyyymmddhhnn.zip and determine how
+well the force balance system corrected Fx, Fy, Fz, Mx, My, Mz and post
+the results here.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T241 - M13T-027: Actuator Force Limits }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T241}{\textit{ LVV-T241 } }
+test case in Jira.
+
+The safe force limit for every actuator was determined through analysis.
+Mirror safety mandates that the mirror control system not send force
+commanded to the actuators that exceed these limits.\\[2\baselineskip]
+
+\begin{verbatim}
+# Steps:
+# - Transition from standby to parked engineering state
+# - Perform the following steps for each force actuator
+#   - If the force actuator has an X component
+#     - Apply a X force offset 15% higher than the max X limit
+#     - Verify the X force is rejected
+#     - Verify the limited X force is applied
+#     - Verify the limited X force is being measured
+#     - Apply a X force offset 15% lower than the min X limit
+#     - Verify the X force is rejected
+#     - Verify the limited X force is applied
+#     - Verify the limited X force is being measured
+#     - Clear offset forces
+#   - If the force actuator has an Y component
+#     - Apply a Y force offset 15% higher than the max Y limit
+#     - Verify the Y force is rejected
+#     - Verify the limited Y force is applied
+#     - Verify the limited Y force is being measured
+#     - Apply a Y force offset 15% lower than the min Y limit
+#     - Verify the Y force is rejected
+#     - Verify the limited Y force is applied
+#     - Verify the limited Y force is being measured
+#     - Clear offset forces
+#   - Apply a Z force offset 15% higher than the max Z limit
+#   - Verify the Z force is rejected
+#   - Verify the limited Z force is applied
+#   - Verify the limited Z force is being measured
+#   - Apply a Z force offset 15% lower than the min Z limit
+#   - Verify the Z force is rejected
+#   - Verify the limited Z force is applied
+#   - Verify the limited Z force is being measured
+#   - Clear offset forces
+# - Transition from parked engineering state to standby
+\end{verbatim}
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror system is in passive mode and the mirror is resting on
+  the static supports.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have software engineering update the ForceActuatorSettings.xml file to
+specify ForceLimitXTablePath, ForceLimitYTablePath, and
+ForceLimitZTablePath to utilize the ForceLimitXTableSmall.csv,
+ForceLimitYTableSmall.csv, and ForceLimitZTableSmall.csv
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T027.py \textbar{}\& tee
+\textasciitilde{}/M13T027-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T027-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T027-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T027-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have software engineering update the ForceActuatorSettings.xml file to
+specify ForceLimitXTablePath, ForceLimitYTablePath, and
+ForceLimitZTablePath to utilize the ForceLimitXTable.csv,
+ForceLimitYTable.csv, and ForceLimitZTable.csv
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T242 - M13T-028: Actuator to Actuator Force Delta for 6 nearest neighbors }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T242}{\textit{ LVV-T242 } }
+test case in Jira.
+
+The safe force delta is the safe limit of variation in force between
+adjacent actuators between the 6 nearest neighbors. This limit was
+determined thru analysis. The purpose of this test is to verify that the
+system will trigger a fault if the force delta is greater than 90\% of
+the safe value, and a fault if the Safe Force value is exceeded.
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have software engineering update the SafetyControllerSettings.xml to
+make it so FaultOnNearNeighborCheck is 0.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T028.py \textbar{}\& tee
+\textasciitilde{}/M13T028-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T028-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T028-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T028-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have software engineering update the SafetyControllerSettings.xml to
+make it so FaultOnNearNeighborCheck is returned to 1.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T237 - M13T-017: Active Optics Actuator Force Updates }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T237}{\textit{ LVV-T237 } }
+test case in Jira.
+
+The purpose of this test is verify that the active optical forces change
+only when specifically requested to. When new AOS forces are sent, they
+replace the ones previous.
+
+\textbf{ Preconditions}:\\
+This is a software simulation that should be performed before actual
+testing
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T017.py \textbar{}\& tee
+\textasciitilde{}/M13T017-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait for the script to complete.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T017-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T017-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T017-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+N/A
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T236 - M13T-016: Static Force Correction }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T236}{\textit{ LVV-T236 } }
+test case in Jira.
+
+A portion of the actuator force budget is allocated to static
+correction. The static correction is principally used to correct the
+variation between the theoretically perfect mirror and the as-built
+mirror. The initial force values are provided through mirror lab
+testing. They will be periodically refined by measurements.\\
+\hspace*{0.333em}\\
+When the M1M3 is in its operational configuration, the actuators forces
+are principally determined by a LUT (look up table). Offsets are added
+to the LUT to produce the combined force command. The static correction
+is one of these offsets. Since the purpose of the static correction is
+to deform the mirror, the static offset correction forces should produce
+no net forces or moments. During this test, the force balance system
+will be operational so the net forces and moments can be verified
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have software engineering update the ForceActuatorSettings.xml file to
+specify StaticXTablePath, StaticYTablePath, and StaticZTablePath to
+utilize the StaticXTableNone.csv, StaticYTableNone.csv, and
+StaticZTableNone.csv
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI under the Hardpoints tab click the Disable Hardpoint
+Corrections Process button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Take a screen shot of the AppliedStaticForces and of the HardpointForces
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Lower Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+10 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ParkedState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+11 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Disable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+12 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+13 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have software engineering update the ForceActuatorSettings.xml file to
+specify StaticXTablePath, StaticYTablePath, and StaticZTablePath to
+utilize the StaticXTable.csv, StaticYTable.csv, and StaticZTable.csv
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Start button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+15 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+16 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Enter Engineering button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+17 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Raise Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+18 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ActiveState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+19 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI under the Hardpoints tab click the Disable Hardpoint
+Corrections Process button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+20 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Take a screen shot of the AppliedStaticForces and of the HardpointForces
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+21 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Lower Mirror button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+22 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Wait until the detailed state reports ParkedState.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+23 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Disable button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+24 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In the EUI click the Standby button.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+25 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Verify the applied static forces changes between the two configurations
+and the hardpoint forces are closer to zero with the application of the
+static forces.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Applied static forces are different.\\
+Hardpoint forces are closer to 0N than before.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T257 - Position Stability During Active Mode Operation }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T257}{\textit{ LVV-T257 } }
+test case in Jira.
+
+Motions of the M1M3 at frequencies greater than \textasciitilde{}1Hz
+cannot be compensated by the telescope and produce image degradation.
+Small low speed motions of less than \textasciitilde{}1 Hz can be
+compensated for by the telescope pointing system operating the TMA. It
+is the displacements and not the accelerations that actually produce the
+image degradation. Consequently, low frequency vibrations are of greater
+interest since the displacement varies with the inverse square of the
+frequency.\\
+\hspace*{0.333em}\\
+Most of the motion is expected to be produce be either slow speed
+vibrations of less than the fundamental frequency of \textasciitilde{}12
+Hz, or motions near the fundamental frequency. Consequently, ~the
+frequencies most likely to produce image degradation are those between
+\textasciitilde{}1 Hz and \textasciitilde{}24 Hz. ~\\
+\hspace*{0.333em}\\
+Since the displacements are large relative to the accelerations, it is
+difficult to determine low frequency displacements with an
+accelerometer. Since they are mechanical elements it is difficult to
+determine high frequency displacement with the sensor of the IMS.
+Consequently both systems need to be employed to verify this
+requirements. The IMS will be used to verify motions between
+\textasciitilde{}1 and 5 Hz. The accelerometers will be used to verify
+motions between 5 and 24 Hz.
+
+\textbf{ Preconditions}:\\
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\begin{minipage}[t]{0.97\columnwidth}\raggedright\strut
+Note: This test can be significantly corrupted by back ground
+vibrations. Consequently, it is recommended that this test be performed
+late at night when there is a minimum of activity. Any unnecessary
+equipment should be turned off, etc.\\
+
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\begin{enumerate}
+\tightlist
+\item
+  Put in active mode, Raise mirror .001m (1mm, but units of meters
+  needed to input to the software)
+\item
+  Wait 5 seconds
+\item
+  Start collecting data for a random 15 second interval, monitor the IMS
+  and mirror accelerometers
+\item
+  Repeat 3x in the following locations:
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    0, 0, 0
+  \item
+    +X, 0, 0
+  \item
+    -X, 0, 0
+  \item
+    0,+Y, 0
+  \item
+    0, -Y, 0
+  \item
+    0, 0, +Z
+  \item
+    0, 0, -Z
+  \item
+    +X, 0, +Z
+  \item
+    +X, 0, -Z
+  \item
+    - X, 0, +Z
+  \item
+    - X, 0, -Z
+  \item
+    0, +Y, +Z
+  \item
+    0, +Y, -Z
+  \item
+    0, -Y, +Z
+  \item
+    0, -Y, -Z~
+  \item
+    +X, +Y, 0
+  \item
+    -X, +Y, 0
+  \item
+    +X, -Y, 0
+  \item
+    -X, -Y, 0
+  \end{enumerate}
+\item
+  To retrieve the data, look at the position command for each of the
+  steps and then use a sample of 15 seconds from that data.
+\item
+  Calculate the RMS
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    average 3 values, variation from average and those values is
+    repeatability, calculate RMS from that.
+  \end{enumerate}
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The total motion determined through the combined measurements of the IMS
+and the accelerometers should be less than the requirement.\\
+Since there is overlap in the motions determined by the IMS and the
+motions determined by the mirror accelerometers, accurate determination
+of this motion will be computationally complex and will require
+significant post processing.\\
+However, the motions determined by the individual systems are fairly
+straightforward.\\
+Addition of these motions by RSS is considered
+adequate.\\[2\baselineskip]To be verified by subsequent analysis of the
+data collected and stored in the EFD.\\[2\baselineskip]\textbf{Needs to
+be clarified}\\
+\textbf{RMS compared to what tolerance.}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+
+\input{appendix.tex}
+\end{document}
