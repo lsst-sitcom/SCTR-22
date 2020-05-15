@@ -232,7 +232,7 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T254}{LVV-T254}
-& {\small Bo Xin } & {\small  } &
+& {\small ahautmann } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -386,11 +386,13 @@ github repo, because the actual LUT being used are those named like
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1809}{LVV-T1809}
-    & Pass w/ Deviation &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    can we get mx my fx fy all close to zero at the same time? probably need
-to adjust more than x and y positions. Chris had a script? need to ask.
+    can we get mx my fx fy all close to zero at the same time? No
+necessarily. fx=fy=0 is what we need, so that the axial actuators are
+all upright. If the mass distribution is uneven, we won't get mx=my=0.
+It is OK.
     \medskip
     \end{minipage}
     &
@@ -1128,7 +1130,7 @@ act 103 \textasciitilde{}1031N. 10:48am, added 20N, GUI show
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1809 - calibrate M1M3 reference position and IMS offset }\mbox{}\\
+\paragraph{Test Case LVV-T1809 - calibrate M1M3 optimal position and IMS offset }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1809}{\textit{ LVV-T1809 } }
 test case in Jira.
@@ -1144,10 +1146,12 @@ errors/anomalies in the testing scripts for other test cases.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf Pass }
 
-Final comment:\\can we get mx my fx fy all close to zero at the same time? probably need
-to adjust more than x and y positions. Chris had a script? need to ask.
+Final comment:\\can we get mx my fx fy all close to zero at the same time? No
+necessarily. fx=fy=0 is what we need, so that the axial actuators are
+all upright. If the mass distribution is uneven, we won't get mx=my=0.
+It is OK.
 
 
 Detailed steps results:
@@ -1212,15 +1216,16 @@ x = -0.5mm, Fx \textasciitilde{}-33N\\
 x = -0.6mm, Fx \textasciitilde{}=1N\\
 The moments are \textasciitilde{}400 - 500 N*m\\
 14:45utc move mirror to x=-0.004m, moments decrease, but fx goes up.\\
-we are going to get fx and fy to zero, and investigate the moments
-later.\\
+we are going to get fx and fy to zero. fx=fy=0 is what we need, so that
+the axial actuators are all upright. If the mass distribution is uneven,
+we won't get mx=my=0. It is OK.\\
 12:04pm local, x=-0.4mm, y=-0.1mm. fx and fy are close to zero now.\\
 29694, 29310, 42366, 37704, 27418, 35478
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1465,28 +1470,7 @@ down'' the M1M3 mirror both with automated control and in the
 engineering mode. ~Lifting up is transitioning from passive support on
 the statics supports to active support on the pneumatic figure control
 actuators. ~Parking down is the opposite transition from active mirror
-support to passive mirror support.\\[2\baselineskip]
-
-\begin{verbatim}
-# Steps:
-# - Transition from standby to parked engineering state
-# - Raise Mirror
-# - Verify raise time is < 300s
-# - Verify HP shows mirror at the reference position
-# - Verify IMS shows mirror at the reference position
-# - Lower Mirror
-# - Verify lower time is < 300s
-# - Verify lower rate is < 15mm/s
-# - Transition to parked state
-# - Raise Mirror
-# - Verify raise time is < 300s
-# - Verify HP shows mirror at the reference position
-# - Verify IMS shows mirror at the reference position
-# - Lower Mirror
-# - Verify lower time is < 300s
-# - Verify lower rate is < 15mm/s
-# - Transition back to standby
-\end{verbatim}
+support to passive mirror support.
 
 \textbf{ Preconditions}:\\
 \begin{enumerate}
@@ -1838,8 +1822,6 @@ controlled.
   EFD
 \end{enumerate}
 
-(1)
-
 Execution status: {\bf Not Executed }
 
 Final comment:\\
@@ -2173,8 +2155,7 @@ test case in Jira.
 This test is intended to verify that all the actuators are correctly
 installed and correctly communicating with the control system. It also
 verifies that their support utilities (compressed air and power) are
-correctly connected and
-operational.\\[2\baselineskip]\texttt{\#\ Steps:\#\ -\ Transition\ from\ standby\ to\ parked\ engineering\ state\#\ -\ Perform\ the\ following\ steps\ for\ each\ force\ actuator\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ X\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ Y\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ -Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ measured\#\ -\ Transition\ from\ parked\ engineering\ state\ to\ standby}
+correctly connected and operational.\texttt{}
 
 \textbf{ Preconditions}:\\
 - All m1m3 actuators installed and operational\\
