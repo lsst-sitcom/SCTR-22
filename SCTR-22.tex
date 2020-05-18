@@ -2289,8 +2289,7 @@ N/A
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T238}{\textit{ LVV-T238 } }
 test case in Jira.
 
-Effectively demostrating the operation of
-M1M3\\[2\baselineskip]\texttt{\#\ Steps:\#\ -\ Transition\ from\ standby\ to\ active\ engineering\ state\#\ -\ Perform\ the\ following\ steps\ for\ each\ force\ actuator\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ X\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ X\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -X\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -X\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ If\ the\ force\ actuator\ has\ an\ Y\ component\#\ ~\ ~\ -\ Apply\ a\ pure\ Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ ~\ -\ Apply\ a\ pure\ -Y\ force\ offset\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ being\ measured\#\ ~\ ~\ -\ Clear\ offset\ forces\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ applied\#\ ~\ ~\ -\ Verify\ the\ pure\ -Y\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ Z\ force\ is\ no\ longer\ being\ measured\#\ ~\ -\ Apply\ a\ pure\ -Z\ force\ offset\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ being\ measured\#\ ~\ -\ Clear\ offset\ forces\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ applied\#\ ~\ -\ Verify\ the\ pure\ -Z\ force\ is\ no\ longer\ being\ measured\#\ -\ Transition\ from\ active\ engineering\ state\ to\ standby}
+Effectively demostrating the operation of M1M3
 
 \textbf{ Preconditions}:\\
 \begin{longtable}[]{@{}l@{}}
@@ -2460,22 +2459,7 @@ test case in Jira.
 This test is intended to verify that all the hardpoints are correctly
 installed and correctly communicating with the control system. It also
 verifies that their support utilities (power) are correctly connected
-and operational.\\[2\baselineskip]
-
-\begin{verbatim}
-# Steps:
-# - Transition from standby to parked engineering state
-# - Perform the following steps for each hardpoint actuator
-#   - Perform the following steps for full extension and full retraction
-#     - Issue hardpoint step command
-#     - Verify hardpoint is moving
-#     - Wait for hardpoint motion to complete or a limit switch is operated
-#     - Issue stop hardpoint motion command
-#     - Verify hardpoint is stopped
-#     - Query EFD for hardpoint monitor data for test duration
-#     - Query EFD for hardpoint actuator data for test duration
-# - Transition from parked engineering to standby state
-\end{verbatim}
+and operational.
 
 \textbf{ Preconditions}:\\
 \begin{enumerate}
@@ -2682,21 +2666,6 @@ This test is effectively identical to the breakaway testing first
 conducted in the lab. The purpose of this test is to verify that the
 breakaway mechanisms are still functioning correctly after
 installation\\[2\baselineskip]
-
-\begin{verbatim}
-# Steps:
-# - Transition from standby to parked engineering state
-# - Perform the following steps for each hardpoint actuator
-#   - Perform the following steps for full extension and full retraction
-#     - Issue hardpoint step command
-#     - Verify hardpoint is moving
-#     - Wait for hardpoint motion to complete or a limit switch is operated
-#     - Issue stop hardpoint motion command
-#     - Verify hardpoint is stopped
-#     - Query EFD for hardpoint monitor data for test duration
-#     - Query EFD for hardpoint actuator data for test duration
-# - Transition from parked engineering to standby state
-\end{verbatim}
 
 \textbf{ Preconditions}:\\
 \begin{enumerate}
@@ -3079,29 +3048,29 @@ Collect a couple of seconds of following types:
 \item
   Baseline
 \item
-  20lbs +X
+  20 N +X
 \item
-  20lbs -X
+  20 N -X
 \item
-  20lbs +Y
+  20 N +Y
 \item
-  20lbs -Y
+  20 N -Y
 \item
-  20lbs +Z
+  20 N +Z
 \item
-  20lbs -Z
+  20 N -Z
 \item
-  20lbs +MX
+  20 N*m +MX
 \item
-  20lbs -MX
+  20 N*m -MX
 \item
-  20lbs +MY
+  20 N*m +MY
 \item
-  20lbs -MY
+  20 N*m -MY
 \item
-  20lbs +MZ
+  20 N*m +MZ
 \item
-  20lbs -MZ
+  20 N*m -MZ
 \end{enumerate}
 
 For each name the data file M13T005-Measured-\textbf{TYPE}-yyyymmdd.csv
@@ -3155,39 +3124,38 @@ N/A
 9 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Collect a couple of seconds of following types:
+Collect a couple of seconds of following types. Note the time of each,
+so that we can go to EFD to analyze data later.
 
 \begin{enumerate}
 \tightlist
 \item
   Baseline
 \item
-  20lbs +X
+  20 N +X
 \item
-  20lbs -X
+  20 N -X
 \item
-  20lbs +Y
+  20 N +Y
 \item
-  20lbs -Y
+  20 N -Y
 \item
-  20lbs +Z
+  20 N +Z
 \item
-  20lbs -Z
+  20 N -Z
 \item
-  20lbs +MX
+  20 N*m +MX
 \item
-  20lbs -MX
+  20 N*m -MX
 \item
-  20lbs +MY
+  20 N*m +MY
 \item
-  20lbs -MY
+  20 N*m -MY
 \item
-  20lbs +MZ
+  20 N*m +MZ
 \item
-  20lbs -MZ
+  20 N*m -MZ
 \end{enumerate}
-
-For each name the data file M13T005-Corrected-\textbf{TYPE}-yyyymmdd.csv
 
 \medskip }
 \end{minipage}
@@ -3287,9 +3255,8 @@ N/A
 13 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Compress \textasciitilde{}/M13T005-*.csv to
-\textasciitilde{}/M13T005-yyyymmddhhnn.zip and attach it to this test
-step.
+Analyze data in the EFD, and determine the accuracy of the measurements
+on Fx, Fy, Fz, Mx, My, Mz and post the results here.
 
 \medskip }
 \end{minipage}
@@ -3298,7 +3265,6 @@ step.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-N/A
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -3314,35 +3280,8 @@ N/A
 14 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Process the data files in M13T005-yyyymmddhhnn.zip and determine the
-accuracy of the measurements on Fx, Fy, Fz, Mx, My, Mz and post the
-results here.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-15 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Process the data files in M13T005-yyyymmddhhnn.zip and determine how
-well the force balance system corrected Fx, Fy, Fz, Mx, My, Mz and post
-the results here.
+Analyze data in the EFD, and determine how well the force balance system
+corrected Fx, Fy, Fz, Mx, My, Mz and post the results here.
 
 \medskip }
 \end{minipage}
@@ -3372,43 +3311,7 @@ test case in Jira.
 
 The safe force limit for every actuator was determined through analysis.
 Mirror safety mandates that the mirror control system not send force
-commanded to the actuators that exceed these limits.\\[2\baselineskip]
-
-\begin{verbatim}
-# Steps:
-# - Transition from standby to parked engineering state
-# - Perform the following steps for each force actuator
-#   - If the force actuator has an X component
-#     - Apply a X force offset 15% higher than the max X limit
-#     - Verify the X force is rejected
-#     - Verify the limited X force is applied
-#     - Verify the limited X force is being measured
-#     - Apply a X force offset 15% lower than the min X limit
-#     - Verify the X force is rejected
-#     - Verify the limited X force is applied
-#     - Verify the limited X force is being measured
-#     - Clear offset forces
-#   - If the force actuator has an Y component
-#     - Apply a Y force offset 15% higher than the max Y limit
-#     - Verify the Y force is rejected
-#     - Verify the limited Y force is applied
-#     - Verify the limited Y force is being measured
-#     - Apply a Y force offset 15% lower than the min Y limit
-#     - Verify the Y force is rejected
-#     - Verify the limited Y force is applied
-#     - Verify the limited Y force is being measured
-#     - Clear offset forces
-#   - Apply a Z force offset 15% higher than the max Z limit
-#   - Verify the Z force is rejected
-#   - Verify the limited Z force is applied
-#   - Verify the limited Z force is being measured
-#   - Apply a Z force offset 15% lower than the min Z limit
-#   - Verify the Z force is rejected
-#   - Verify the limited Z force is applied
-#   - Verify the limited Z force is being measured
-#   - Clear offset forces
-# - Transition from parked engineering state to standby
-\end{verbatim}
+commanded to the actuators that exceed these limits.
 
 \textbf{ Preconditions}:\\
 \begin{enumerate}
@@ -4628,7 +4531,7 @@ Hardpoint forces are closer to 0N than before.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T257 - Position Stability During Active Mode Operation }\mbox{}\\
+\paragraph{Test Case LVV-T257 - M13T-011: Position Stability During Active Mode Operation }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T257}{\textit{ LVV-T257 } }
 test case in Jira.
@@ -4710,73 +4613,38 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\begin{enumerate}
-\tightlist
-\item
-  Put in active mode, Raise mirror .001m (1mm, but units of meters
-  needed to input to the software)
-\item
-  Wait 5 seconds
-\item
-  Start collecting data for a random 15 second interval, monitor the IMS
-  and mirror accelerometers
-\item
-  Repeat 3x in the following locations:
-
-  \begin{enumerate}
-  \tightlist
-  \item
-    0, 0, 0
-  \item
-    +X, 0, 0
-  \item
-    -X, 0, 0
-  \item
-    0,+Y, 0
-  \item
-    0, -Y, 0
-  \item
-    0, 0, +Z
-  \item
-    0, 0, -Z
-  \item
-    +X, 0, +Z
-  \item
-    +X, 0, -Z
-  \item
-    - X, 0, +Z
-  \item
-    - X, 0, -Z
-  \item
-    0, +Y, +Z
-  \item
-    0, +Y, -Z
-  \item
-    0, -Y, +Z
-  \item
-    0, -Y, -Z~
-  \item
-    +X, +Y, 0
-  \item
-    -X, +Y, 0
-  \item
-    +X, -Y, 0
-  \item
-    -X, -Y, 0
-  \end{enumerate}
-\item
-  To retrieve the data, look at the position command for each of the
-  steps and then use a sample of 15 seconds from that data.
-\item
-  Calculate the RMS
-
-  \begin{enumerate}
-  \tightlist
-  \item
-    average 3 values, variation from average and those values is
-    repeatability, calculate RMS from that.
-  \end{enumerate}
-\end{enumerate}
+From a terminal run the following command after replacing yyyy with
+year, mm with month, dd with day, hh with hour, and nn with
+minute.\\[2\baselineskip]python36 M13T011.py \textbar{}\& tee
+\textasciitilde{}/M13T011-yyyymmddhhnn.txt\\[2\baselineskip]\# Steps:\\
+\# - Issue start command\\
+\# - Raise Mirror in Active Engineering Mode\\
+\# - Wait 5 seconds for everything to settle\\
+\# - Confirm Mirror in Reference Position\\
+\# - Follow the motion matrix below, where X, Y \& Z are 1.0 mm\\
+\# - Wait 15 seconds between each movement to let control take
+measurements.\\
+\# +X, 0, 0\\
+\# -X, 0, 0\\
+\# 0,+Y, 0\\
+\# 0, -Y, 0\\
+\# 0, 0, +Z\\
+\# 0, 0, -Z\\
+\# +X, +Y, 0\\
+\# +X, -Y, 0\\
+\# -X, +Y, 0\\
+\# -X, -Y, 0\\
+\# +X, 0, +Z\\
+\# +X, 0, -Z\\
+\# -X, 0, +Z\\
+\# -X, 0, -Z\\
+\# 0, +Y, +Z\\
+\# 0, +Y, -Z\\
+\# 0, -Y, +Z\\
+\# 0, -Y, -Z\\
+\# - Repeat Matrix 2 more times\\
+\# - Transition back to standby\\
+\# - Pull data from EFD to generate RMS values specified by the test.
 
 \medskip }
 \end{minipage}
@@ -4800,6 +4668,7 @@ Detailed steps results:
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Wait for the script to complete.
 
 \medskip }
 \end{minipage}
@@ -4808,19 +4677,61 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The total motion determined through the combined measurements of the IMS
-and the accelerometers should be less than the requirement.\\
-Since there is overlap in the motions determined by the IMS and the
-motions determined by the mirror accelerometers, accurate determination
-of this motion will be computationally complex and will require
-significant post processing.\\
-However, the motions determined by the individual systems are fairly
-straightforward.\\
-Addition of these motions by RSS is considered
-adequate.\\[2\baselineskip]To be verified by subsequent analysis of the
-data collected and stored in the EFD.\\[2\baselineskip]\textbf{Needs to
-be clarified}\\
-\textbf{RMS compared to what tolerance.}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+From a terminal run the following command replacing yyyy with year, mm
+with month, dd with day, hh with hour, and nn with minute used in step
+1.\\[2\baselineskip]grep -E ``ANOM -''
+\textasciitilde{}/M13T011-yyyymmddhhnn.txt
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The search should display no results meaning no anomalies occurred
+during the test.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Compress \textasciitilde{}/M13T011-yyyymmddhhnn.txt to
+\textasciitilde{}/M13T011-yyyymmddhhnn.zip and attach it to this test
+step.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
