@@ -814,9 +814,9 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1761}{\te
 test case in Jira.
 
 The purpose of this test is verify the correct operation of the
-electrical hardware associated to the interlock system\\
-The mirror cell's door is opened and a signal is sent stop further
-Telescope Mount Assembly Motion and remove power to the fan coil units.
+electrical hardware associated to the interlock system.\\
+The mirror cell's door is opened and a signal is sent stop Telescope
+Mount Assembly Motion and to remove power to the Fan Coil Units.
 
 \textbf{ Preconditions}:\\
 -Factory test done.\\
@@ -826,7 +826,8 @@ Telescope Mount Assembly Motion and remove power to the fan coil units.
 -Support Controller On\\
 -Thermal Controller On\\
 -GIS simulator present (if not bypass ``GIS Heartbeat loss'' event)\\
--No events or actions triggered
+-No events or actions triggered\\
+-Fan Coil Units are installed and operational
 
 Execution status: {\bf Blocked }
 
@@ -915,7 +916,7 @@ Recovery Process:\\[2\baselineskip]
 \begin{itemize}
 \tightlist
 \item
-  reset ``mirror cell door open'' event~
+  reset ``mirror cell door open'' event
 \end{itemize}
 
 \medskip }
