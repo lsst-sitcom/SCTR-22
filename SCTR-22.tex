@@ -843,7 +843,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-open mirror cell door
+Open Mirror Cell door
 
 \medskip }
 \end{minipage}
@@ -855,31 +855,60 @@ open mirror cell door
 \begin{itemize}
 \tightlist
 \item
-  ``Mirror door open'' indicator active at user interface
+  ``Mirror Cell Door Open'' indicator active at user interface
 \item
   ``TMA Motion Block'' action indicator active at user interface
 \item
-  M1M3 IS output
+  ``Remove Power to Fan Coil units'' action indicator active at user
+  interface
 
   \begin{itemize}
   \tightlist
   \item
-    main.4.O2(14) off??
-  \end{itemize}
-\item
-  Support controller detects ``Block TMA Motion'' action status
-\end{itemize}
+    MI1M3 IS outputs off:
 
-If test fails check: ??
+    \begin{itemize}
+    \tightlist
+    \item
+      ext.0.12(14)
+    \item
+      ext.0.13(24)
+    \item
+      ext.4.00(11,12)
+    \item
+      ext.4.01(31,32)
+    \end{itemize}
+  \item
+    M1M3 IS output status:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      ext.3.01(21)
+    \item
+      Main.4.02(14)
+    \item
+      Main.3.01(21)
+    \item
+      ext.2.00(11)
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 \begin{itemize}
 \tightlist
 \item
-  lights power is present, power should be 24V. If not check power
-  supply P11, relays K13, K18
-\item
-  M1M3 IS input main.1.I0(11) voltage, if event is present should be 0V,
-  if not present 24V.
+  If test fails check:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    lights power is present, power should be 24V. If not check power
+    supply P11, relays K13, K18
+  \item
+    M1M3 IS input main.1.I0(11) voltage, if event is present should be
+    0V, if not present 24V.
+  \end{itemize}
 \end{itemize}
 
 \medskip }
@@ -896,14 +925,14 @@ If test fails check: ??
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Recovery Process:\\[2\baselineskip]
+Recovery Process:\\
 
 \begin{itemize}
 \tightlist
 \item
-  close mirror cell door
+  Close mirror cell door
 \item
-  reset ``mirror cell door open'' event
+  Reset ``mirror cell door open'' event
 \end{itemize}
 
 \medskip }
@@ -913,11 +942,7 @@ Recovery Process:\\[2\baselineskip]
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  reset ``mirror cell door open'' event
-\end{itemize}
+Reset ``mirror cell door open'' event
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
