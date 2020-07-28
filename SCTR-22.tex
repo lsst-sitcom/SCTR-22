@@ -239,7 +239,7 @@ Bo Xin }
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T228}{LVV-T228}
-& {\small Bo Xin } & {\small  } &
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -454,7 +454,7 @@ It is OK.
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T228}{LVV-T228}
 &  1
-& Not Executed &
+& In Progress &
 \begin{minipage}[]{9cm}
 \smallskip
 
@@ -1524,7 +1524,7 @@ needs to be logged for the following tests is verified.~
   EFD is reading from SAL~
 \end{itemize}
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf In Progress }
 
 Final comment:\\
 
@@ -1563,7 +1563,13 @@ M1M3 EUI shows M1M3 ready.~
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Run the python script
+Run the python script M13T-001.py\\
+\# What this script does:\\
+\# - Issue start command\\
+\# - Check EFD for the most recently sent start command\\
+\# - Check EFD for the most recently published detailed state event\\
+\# - Check EFD for the most recently published inclinometer telemetry\\
+\# - Transition back to standby
 
 \medskip }
 \end{minipage}
@@ -1610,6 +1616,33 @@ script.~
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+check the telemetry data in the EFD and verify the~{telemetry is
+published at the same rate as the outer force controller
+loop.}\\[2\baselineskip]
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+https://github.com/bxin/M1M3\_summit\_2003/blob/master/EFD\_summit.ipynb
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
