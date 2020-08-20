@@ -190,6 +190,14 @@ The personnel involved in the test campaign is shown in the following table.
 Bo Xin }
 } \\\hline
 \textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T246}{LVV-T246}
+& {\small Andrew Serio [X] } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1864}{LVV-T1864}
 & {\small Austin Roberts } & {\small  } &
 \begin{minipage}[]{6cm}
@@ -385,6 +393,16 @@ Bo Xin }
 \multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C126}{LVV-C126}:} &
 \multicolumn{2}{p{10.9cm}}{\textbf{ M1M3 Functional Re-verification and Integration with SAL v4.0 }} & In Progress \\\hline
 \textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T246}{LVV-T246}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+
+\medskip
+\end{minipage}
+&
+\\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1864}{LVV-T1864}
 &  1
 & Not Executed &
@@ -647,6 +665,142 @@ Not provided.
 Not provided.
 
 \subsubsection{Test Cases in LVV-C126 Test Cycle}
+
+\paragraph{ LVV-T246 - M13T-035: Actuator Replacement Time }\mbox{}\\
+
+Version \textbf{1}.
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T246}{\textit{ LVV-T246 } }
+test case in Jira.
+
+To prevent the replacement of an actuator from interfering with
+observing time, the total replacement time is limited to 6 hours. To
+provide sufficient time for setup, cleanup and calibration the total
+time allocated to the physical removal is limited to 3 hours.~
+
+\textbf{ Preconditions}:\\
+\begin{enumerate}
+\tightlist
+\item
+  All M1M3 Systems installed, except thermal control and interlocks
+\item
+  All M1M3 Systems operating, except thermal control and interlocks
+\item
+  The accelerometers on the mirror are operational and the outputs are
+  being recorded.
+\item
+  The independent measuring system (IMS) is operational and the outputs
+  are being recorded.
+\item
+  The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators
+\item
+  The M1M3 mirror system is in passive mode and the mirror is resting on
+  the static supports.
+\item
+  The M1M3 mirror positioning system is operational and the outputs are
+  being recorded.
+\item
+  Hard points are in their nominal positions with negligible loads
+  present.
+\item
+  M1M3 control software is current and configured for this test.
+\item
+  All test data is being recorded to the Engineering Facility Database
+  EFD
+\end{enumerate}
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\begin{enumerate}
+\tightlist
+\item
+  Position all required equipment outside of the cell. Since
+  prepositioning can be effectively accomplished beforehand, this
+  preparation time is not considered part of the total time.
+\item
+  Begin timing and start the replacement procedure
+  \href{https://confluence.lsstcorp.org/display/~uhautmann}{Ulrike
+  Hautmann} for link to procedure.
+\item
+  Note the time when the physical removal of the actuator has begun.
+  This includes the disconnecting of all signal, electrical and
+  pneumatic connection. This included all mechanical interfacing.~
+\item
+  Install one of the spare actuators, note the time when the physical
+  installation of the actuator has been completed.~
+\item
+  Verify that each spare is a stand alone unit with all mechanical
+  pneumatic and electronics.
+\item
+  Remove all installation equipment and start the calibration and
+  rudimentary testing of the actuator. Using the force balance system
+  and some commands (TBD) make sure everything is working as expected.
+\item
+  This testing need only be sufficient to demonstrate continuity with
+  all connections and that the forces can be applied and measured
+  according to the bump test. When the actuator has be certified as
+  properly functioning stop timing.
+\item
+  Repeat the above test for two of each type of actuator. Do not remove
+  any spares until all the actuators have been installed.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Each type of actuator is expected to removed, replaced and fully
+functional in 6 hrs.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
 
 \paragraph{ LVV-T1864 - M1M3 Hazard Mitigation Verification }\mbox{}\\
 
