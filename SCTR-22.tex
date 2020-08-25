@@ -2022,7 +2022,25 @@ Detailed steps results:
 From a terminal run the following command after replacing yyyy with
 year, mm with month, dd with day, hh with hour, and nn with
 minute.\\[2\baselineskip]python36 M13T012.py \textbar{}\& tee
-\textasciitilde{}/M13T012-yyyymmddhhnn.txt
+\textasciitilde{}/M13T012-yyyymmddhhnn.txt\\
+\# What this script does:\\
+\# - Issue start command\\
+\# - Raise Mirror in Active Engineering Mode\\
+\# - Wait 5 seconds for everything to settle\\
+\# - Confirm Mirror in Reference Position\\
+\# - Park the miror, confirmed it has parked.\\
+\# - Take IMS measurements\\
+\# - return mirror to parked position.\\
+\# - repeat above process 5 times.\\
+\# - repeat the process for the matrix below\\
+\# - Follow the motion matrix below, where X, Y \& Z are 1.0 mm\\
+\# +X, 0, 0\\
+\# -X, 0, 0\\
+\# 0,+Y, 0\\
+\# 0, -Y, 0\\
+\# 0, 0, +Z\\
+\# 0, 0, -Z\\
+\# - Transition back to standby
 
 \medskip }
 \end{minipage}
