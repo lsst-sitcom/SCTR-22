@@ -652,12 +652,28 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T246}{\textit{ LVV-T246 } }
 test case in Jira.
 
-To prevent the replacement of an actuator from interfering with
-observing time, the total replacement time is limited to 6 hours. To
-provide sufficient time for setup, cleanup and calibration the total
-time allocated to the physical removal is limited to 3 hours.~
+The objective of this test case is to verify that all types of actuators
+for the M1M3 can be replaced in 6 hours or less. This test case will
+incorporate a bump test in order to demonstrate the continuity with all
+connections and the replacement actuator's ability to apply the correct
+support forces. Furthermore, in order to provide the sufficient time for
+setup, cleanup and calibration, the total time allocated to the physical
+removal will be limited to 3 hours. This test case will only exercise
+this functionality and meets the following criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the surrogate mirror to be installed
+\end{itemize}
+
+{I'm not sure if the scope of this test is saying that we should test
+the replacement time of each type of actuator twice?}
 
 \textbf{ Preconditions}:\\
+Prior to the execution of this test case, the following must be
+completed:\\
+
 \begin{enumerate}
 \tightlist
 \item
@@ -671,11 +687,12 @@ time allocated to the physical removal is limited to 3 hours.~
   The independent measuring system (IMS) is operational and the outputs
   are being recorded.
 \item
-  The M1M3 mirror system is in active mode and the mirror is resting on
-  the actuators
+  {The M1M3 mirror system is in active mode and the mirror is resting on
+  the actuators}
 \item
-  The M1M3 mirror system is in passive mode and the mirror is resting on
-  the static supports.
+  {The M1M3 mirror system is in passive mode and the mirror is resting
+  on the static supports. - This seems contradictory; are we just saying
+  that this should have already been verified?}
 \item
   The M1M3 mirror positioning system is operational and the outputs are
   being recorded.
@@ -839,7 +856,10 @@ test case in Jira.
 The overall environmental constraints are listed in \citeds{LTS-54}. This set of
 requirements from \citeds{LTS-88} is a flow-down from \citeds{LTS-54}. These tests will
 verify that the M1M3 system can operate under the conditions found at
-CAID and SOML ahead of being shipped to Pachon.
+CAID and SOML ahead of being shipped to Pachon.\\[2\baselineskip]{I've
+traced an LVV-11363 here but it seems like it would get verified similar
+to how LVV-11164. This makes me question the necessity of including this
+test case as part of this cycle.}
 
 \textbf{ Preconditions}:\\
 \begin{enumerate}
