@@ -972,21 +972,49 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1761}{\textit{ LVV-T1761 } }
 test case in Jira.
 
-The purpose of this test is verify the correct operation of the
-electrical hardware associated to the interlock system.\\
-The mirror cell's door is opened and a signal is sent stop Telescope
-Mount Assembly Motion and to remove power to the Fan Coil Units.
+The objective of this test is to verify the correct operation of the
+electrical hardware associated to the interlock system. This test should
+demonstrate that when the mirror cell door is opened, a signal is sent
+to the GIS preventing any motion of the TMA and all power to the Fan
+Coil Units is removed. This test case will only exercise this
+functionality and meets the following criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  {Only requires the M1M3 IS to be connected to the GIS~}
+\item
+  Only requires the Fan Coil Units to be installed and outputting data
+  to the EFD
+\end{itemize}
 
 \textbf{ Preconditions}:\\
--Factory test done.\\
--Safety controller powered.\\
--Safety controller M1M3 IS firmware running.\\
--M1M3 IS User Interface available\\
--Support Controller On\\
--Thermal Controller On\\
--GIS simulator present (if not bypass ``GIS Heartbeat loss'' event)\\
--No events or actions triggered\\
--Fan Coil Units are installed and operational
+Prior to the execution of this test case, the following must be
+completed:~
+
+\begin{itemize}
+\tightlist
+\item
+  {Factory test done}.
+\item
+  Safety controller powered.
+\item
+  Safety controller M1M3 IS firmware running.
+\item
+  {M1M3 IS User Interface available}
+\item
+  Support Controller On
+\item
+  Thermal Controller On
+\item
+  GIS simulator present (if not bypass ``GIS Heartbeat loss'' event)
+\item
+  No events or actions triggered
+\item
+  Fan Coil Units are installed and operational
+\end{itemize}
 
 Execution status: {\bf Blocked }
 
